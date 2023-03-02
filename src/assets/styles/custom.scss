@@ -1,0 +1,35 @@
+html {
+  font-size: 70% !important;
+  line-height: 1.15 !important;
+}
+.ant-menu-item-selected {
+  background-color: #2a2a3c !important;
+  color: #fff !important;
+}
+:where(.css-dev-only-do-not-override-141rmge).ant-menu-light:not(
+    .ant-menu-horizontal
+  )
+  .ant-menu-item:not(.ant-menu-item-selected):hover {
+  color: #fff !important;
+}
+.ant-menu-item {
+  &:active {
+    background-color: transparent !important;
+  }
+  border-radius: 0.475rem !important;
+  //   padding-right: 0 !important;
+  .ant-menu-title-content {
+    margin-right: 0.5rem !important;
+  }
+}
+.ant-form-item-label {
+  color: #3f4254 !important;
+}
+.ant-form-item-control-input-content {
+  .ant-input {
+    border: none;
+    padding: 0.775rem 1rem;
+    font-size: 1.1rem !important;
+    border-radius: 0.475rem;
+  }
+}
