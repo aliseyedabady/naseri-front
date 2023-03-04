@@ -21,7 +21,6 @@ const AkoForm = ({ form }) => {
         return <></>;
       case "toggle":
         return <></>;
-
       case "date":
         return <></>;
       case "file":

@@ -33,3 +33,44 @@ html {
     border-radius: 0.475rem;
   }
 }
+.ant-form-item {
+  margin-bottom: 10px !important;
+}
+//---------------login Page----------------
+.main {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  padding: 90px 0 90px 0;
+  .sub-main {
+    display: flex;
+    justify-content: center;
+    height: 500px;
+    width: 70%;
+    box-shadow: 0 4px 8px 1px rgba(0, 0, 0, 0.2),
+      0 6px 20px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 0.625rem;
+    .main-form {
+      align-self: center;
+      width: 70%;
+      .avatar {
+        background-color: transparent;
+        color: #2a2a3c;
+        border: 2px solid #2a2a3c;
+      }
+      .forget-section {
+        display: flex;
+        justify-content: space-between;
+      }
+      Button {
+        width: 100%;
+      }
+      .cancell-form-button {
+        margin-top: 20px;
+        border: 1px solid red;
+        color: red;
+      }
+    }
+  }
+}
+//-----------------------------------------

@@ -1,4 +1,6 @@
 export default {
+  pageBackground:"ffffff",
+  cardBackground:"f5f5f5",
   colorPrimary: "#00b96b",
   colorError: "#b02a37",
   colorSuccess: "#50cd89",
