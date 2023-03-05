@@ -5,6 +5,7 @@ import {
   UploadOutlined,
   UserOutlined,
   VideoCameraOutlined,
+  MenuOutlined,
 } from "@ant-design/icons";
 import { Layout, Menu, theme, Typography } from "antd";
 
@@ -25,7 +26,14 @@ const PanelLayout = ({ children }) => {
         minHeight="100vh"
         style={{ backgroundColor: sideBarBackgroundColor }}
       >
-        <Typography.Text style={{ color: "#ffffff", textAlign: "center" }}>
+        <Typography.Text
+          style={{
+            color: "#ffffff",
+            textAlign: "center",
+            margin: "20px auto",
+            display: "block",
+          }}
+        >
           ناصری سرویس
         </Typography.Text>
         <Menu
@@ -53,13 +61,11 @@ const PanelLayout = ({ children }) => {
       </Sider>
       <Layout className="site-layout">
         <Header style={{ padding: 0, background: colorBgContainer }}>
-          {React.createElement(
-            collapsed ? MenuUnfoldOutlined : MenuFoldOutlined,
-            {
-              className: "trigger",
-              onClick: () => setCollapsed(!collapsed),
-            }
-          )}
+          {React.createElement(MenuOutlined, {
+            className: "trigger",
+            onClick: () => setCollapsed(!collapsed),
+            style: { marginRight: "20px", fontSize: "20px" },
+          })}
         </Header>
         <Content
           style={{
