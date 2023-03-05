@@ -87,7 +87,7 @@ const rowSelection = {
       selectedRows
     );
   },
-  getCheckboxProps: (record) => ({
+  getCheckboxProps: record => ({
     disabled: record.name === "Disabled User",
     name: record.name,
   }),
@@ -103,8 +103,8 @@ const TableUser = () => {
     },
   ]);
   const [count, setCount] = useState(2);
-  const handleDelete = (key) => {
-    const newData = dataSource.filter((item) => item.key !== key);
+  const handleDelete = key => {
+    const newData = dataSource.filter(item => item.key !== key);
     setDataSource(newData);
   };
   const defaultColumns = [
@@ -149,9 +149,9 @@ const TableUser = () => {
     setDataSource([...dataSource, newData]);
     setCount(count + 1);
   };
-  const handleSave = (row) => {
+  const handleSave = row => {
     const newData = [...dataSource];
-    const index = newData.findIndex((item) => row.key === item.key);
+    const index = newData.findIndex(item => row.key === item.key);
     const item = newData[index];
     newData.splice(index, 1, {
       ...item,
@@ -165,13 +165,13 @@ const TableUser = () => {
       cell: EditableCell,
     },
   };
-  const columns = defaultColumns.map((col) => {
+  const columns = defaultColumns.map(col => {
     if (!col.editable) {
       return col;
     }
     return {
       ...col,
-      onCell: (record) => ({
+      onCell: record => ({
         record,
         editable: col.editable,
         dataIndex: col.dataIndex,
@@ -192,10 +192,10 @@ const TableUser = () => {
         components={components}
         rowClassName={() => "editable-row"}
         bordered
-      title={() => <div>search bar , filters</div>}
+        title={() => <div>search bar , filters</div>}
         dataSource={dataSource}
         columns={columns}
-        pagination={{position:["bottomCenter"]}}
+        pagination={{ position: ["bottomCenter"] }}
       />
       <Button
         onClick={handleAdd}
