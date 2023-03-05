@@ -8,6 +8,7 @@ import {
   MenuOutlined,
 } from "@ant-design/icons";
 import { Layout, Menu, theme, Typography } from "antd";
+import { Link, useNavigate } from "react-router-dom";
 
 const { Header, Sider, Content } = Layout;
 
@@ -16,7 +17,7 @@ const PanelLayout = ({ children }) => {
   const {
     token: { colorBgContainer, sideBarBackgroundColor, sidebarColorDefault },
   } = theme.useToken();
-
+  const navigate = useNavigate();
   return (
     <Layout style={{ minHeight: "100vh" }}>
       <Sider
@@ -44,12 +45,12 @@ const PanelLayout = ({ children }) => {
             {
               key: "1",
               icon: <UserOutlined />,
-              label: "داشبورد",
+              label: <Link to={"/"}>داشبورد</Link>,
             },
             {
               key: "2",
               icon: <VideoCameraOutlined />,
-              label: "کاربران",
+              label: <Link to={"/users"}>کاربران</Link>,
             },
             {
               key: "3",

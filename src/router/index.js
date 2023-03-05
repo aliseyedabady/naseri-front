@@ -18,7 +18,7 @@ export default [
   },
 
   {
-    path: "user-table",
+    path: "users",
     component: TableUser,
     layout: PanelLayout,
   },
