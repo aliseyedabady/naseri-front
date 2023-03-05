@@ -15,8 +15,8 @@ const AkoSelect = ({ element }) => {
     >
       <Select
         defaultValue="lucy"
-        style={{ backgroundColor: inputBackgroundColor }}
         // onChange={handleChange}
+        showSearch={true}
         options={[
           { value: "jack", label: "Jack" },
           { value: "lucy", label: "Lucy" },
