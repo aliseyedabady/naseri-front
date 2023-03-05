@@ -2,17 +2,17 @@ import React from "react";
 import { Button, Checkbox, Col, Form, Input, Row, theme } from "antd";
 import { useForm } from "./hook";
 import { isIn } from "../../utils/functions";
+import Grid from "./components/grid";
+import AkoInput from "./components/input";
+import AkoSelect from "./components/select";
 const AkoForm = ({ form }) => {
-  const {
-    token: { inputBackgroundColor },
-  } = theme.useToken();
   const {} = useForm();
   const renderElement = element => {
     switch (element.type) {
       case "images":
         return <></>;
       case "select":
-        return <></>;
+        return <AkoSelect element={element} />;
       case "textarea":
         return <></>;
       case "editor":
@@ -23,30 +23,25 @@ const AkoForm = ({ form }) => {
         return <></>;
       case "date":
         return <></>;
+      case "clock":
+        return <></>;
       case "file":
         return <></>;
       case "excel":
         return <></>;
       default:
-        return (
-          <Col lg={6} md={12} span={24}>
-            <Form.Item
-              required={isIn(element.rules, "required", true)}
-              label={element.label}
-              rules={element.rules}
-              name={element.key}
-            >
-              <Input style={{ backgroundColor: inputBackgroundColor }} />
-            </Form.Item>
-          </Col>
-        );
+        return <AkoInput element={element} />;
     }
   };
   return (
     <Form name="" autoComplete="off" layout="vertical" size={"middle"}>
       <Row gutter={[24, 0]}>
         {form.map(element => {
-          return renderElement(element);
+          return (
+            <Grid lg={6} md={12} span={24}>
+              {renderElement(element)}
+            </Grid>
+          );
         })}
       </Row>
 

@@ -30,7 +30,7 @@ const FormLayOut = () => {
         {
           key: "categories_id",
           label: "دسته بندی مقاله",
-          type: "multiselect",
+          type: "select",
           need: "blog_categories",
           noNeed: true,
           rules: [
