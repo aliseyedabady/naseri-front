@@ -17,6 +17,7 @@ const FormLayOut = () => {
               required: true,
             },
           ],
+          lg: 8,
         },
         {
           key: "slug",
@@ -26,6 +27,7 @@ const FormLayOut = () => {
               required: true,
             },
           ],
+          lg: 8,
         },
         {
           key: "categories_id",
@@ -38,36 +40,31 @@ const FormLayOut = () => {
               required: true,
             },
           ],
+          lg: 8,
         },
         {
           key: "description",
           label: "توضیحات",
           type: "textarea",
-          noNeed: true,
-        },
-        {
-          key: "content",
-          label: "متن مقاله",
-          type: "editor",
-        },
-        {
-          key: "photo",
-          label: "تصویر مقاله",
-          type: "images",
-          noNeed: true,
-        },
-        {
-          key: "tags",
-          type: "keywords",
-          label: "کلمات کلیدی",
-          noNeed: true,
+          rules: [
+            {
+              required: true,
+            },
+          ],
+          lg: 12,
         },
         {
           label: "توضیحات سيو",
           type: "textarea",
           nested: "seo",
           key: "seoDescription",
-          noNeed: true,
+          lg: 12,
+        },
+        {
+          key: "photo",
+          label: "تصویر مقاله",
+          type: "images",
+          lg: 8,
         },
       ]}
     />

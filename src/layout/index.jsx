@@ -6,8 +6,19 @@ import {
   UserOutlined,
   VideoCameraOutlined,
   MenuOutlined,
+  SearchOutlined,
 } from "@ant-design/icons";
-import { Layout, Menu, theme, Typography } from "antd";
+import {
+  Avatar,
+  Button,
+  Divider,
+  Dropdown,
+  Layout,
+  Menu,
+  Space,
+  theme,
+  Typography,
+} from "antd";
 import { Link, useNavigate } from "react-router-dom";
 
 const { Header, Sider, Content } = Layout;
@@ -26,6 +37,10 @@ const PanelLayout = ({ children }) => {
         collapsed={collapsed}
         minHeight="100vh"
         style={{ backgroundColor: sideBarBackgroundColor }}
+        breakpoint="lg"
+        onBreakpoint={() => {
+          setCollapsed(true);
+        }}
       >
         <Typography.Text
           style={{
@@ -33,10 +48,12 @@ const PanelLayout = ({ children }) => {
             textAlign: "center",
             margin: "20px auto",
             display: "block",
+            fontSize: "18px",
           }}
         >
           ناصری سرویس
         </Typography.Text>
+        <Divider dashed style={{ borderColor: "#393945" }} />
         <Menu
           mode="inline"
           style={{ backgroundColor: "transparent", color: sidebarColorDefault }}
@@ -61,12 +78,84 @@ const PanelLayout = ({ children }) => {
         />
       </Sider>
       <Layout className="site-layout">
-        <Header style={{ padding: 0, background: colorBgContainer }}>
+        <Header
+          style={{
+            background: colorBgContainer,
+            padding: "0 40px",
+            display: "flex",
+            alignItems: "center",
+          }}
+        >
           {React.createElement(MenuOutlined, {
             className: "trigger",
             onClick: () => setCollapsed(!collapsed),
-            style: { marginRight: "20px", fontSize: "20px" },
+            style: { fontSize: "20px" },
           })}
+
+          <Dropdown
+            dropdownRender={menu => (
+              <div
+                style={{
+                  backgroundColor: "#fff",
+                  boxShadow: " 0px 0px 50px 0px rgba(82, 63, 105, 0.15)",
+                  marginTop: "10px",
+                  borderRadius: "0.475rem",
+                }}
+              >
+                <Space direction="horizontal" size={12} style={{ padding: 8 }}>
+                  <Avatar
+                    shape="square"
+                    style={{ marginRight: "auto" }}
+                    src={require("../assets/image/ali.jpg")}
+                  />
+                  <Space direction="vertical">
+                    <Typography.Text>علی سیدآبادی</Typography.Text>
+                    <Typography.Text>ialiseyed@gmail.com</Typography.Text>
+                  </Space>
+                </Space>
+                <Divider style={{ margin: "0" }} />
+                <Menu
+                  style={{ boxShadow: "none" }}
+                  items={[
+                    {
+                      key: "1",
+                      label: <Link to={"/"}>پروفایل</Link>,
+                    },
+                    {
+                      key: "2",
+                      label: <Link to={"/users"}>کاربران</Link>,
+                    },
+                    {
+                      key: "3",
+                      label: "محصولات",
+                    },
+                  ]}
+                />
+                <Divider style={{ margin: "0" }} />
+                <Menu
+                  style={{ boxShadow: "none" }}
+                  items={[
+                    {
+                      key: "3",
+                      label: "خروج",
+                    },
+                  ]}
+                />
+              </div>
+            )}
+          >
+            <Avatar
+              shape="square"
+              style={{ marginRight: "auto" }}
+              src={require("../assets/image/ali.jpg")}
+            />
+          </Dropdown>
+          <Dropdown style={{}}>
+            <SearchOutlined
+              style={{ fontSize: "20px", marginRight: "15px" }}
+              fontSize={20}
+            />
+          </Dropdown>
         </Header>
         <Content
           style={{
