@@ -19,7 +19,8 @@ import {
   theme,
   Typography,
 } from "antd";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const { Header, Sider, Content } = Layout;
 
@@ -29,18 +30,23 @@ const PanelLayout = ({ children }) => {
     token: { colorBgContainer, sideBarBackgroundColor, sidebarColorDefault },
   } = theme.useToken();
   const navigate = useNavigate();
+  const { pathname } = useLocation();
   return (
     <Layout style={{ minHeight: "100vh" }}>
+      {" "}
       <Sider
         trigger={null}
         collapsible
         collapsed={collapsed}
         minHeight="100vh"
-        style={{ backgroundColor: sideBarBackgroundColor }}
-        breakpoint="lg"
-        onBreakpoint={() => {
-          setCollapsed(true);
+        style={{
+          backgroundColor: sideBarBackgroundColor,
+          zIndex: 14142124124,
+          position: "relative",
+          minHeight: "100vh",
+          overflowY: "hidden",
         }}
+        breakpoint="lg"
       >
         <Typography.Text
           style={{
@@ -56,16 +62,20 @@ const PanelLayout = ({ children }) => {
         <Divider dashed style={{ borderColor: "#393945" }} />
         <Menu
           mode="inline"
-          style={{ backgroundColor: "transparent", color: sidebarColorDefault }}
+          style={{
+            backgroundColor: "transparent",
+            color: sidebarColorDefault,
+          }}
           defaultSelectedKeys={["1"]}
+          selectedKeys={[pathname]}
           items={[
             {
-              key: "1",
+              key: "/",
               icon: <UserOutlined />,
               label: <Link to={"/"}>داشبورد</Link>,
             },
             {
-              key: "2",
+              key: "/users",
               icon: <VideoCameraOutlined />,
               label: <Link to={"/users"}>کاربران</Link>,
             },
@@ -165,7 +175,15 @@ const PanelLayout = ({ children }) => {
             background: colorBgContainer,
           }}
         >
-          {children}
+          {" "}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 5 }}
+          >
+            {children}{" "}
+          </motion.div>{" "}
         </Content>
       </Layout>
     </Layout>

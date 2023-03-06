@@ -4,14 +4,16 @@ import "./assets/styles/index.scss";
 // import Layout from "./layout";
 import "antd/dist/reset.css";
 // import AkoForm from "./components/form";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import { BrowserRouter } from "react-router-dom";
 import router from "./router/index.js";
+import { AnimatePresence } from "framer-motion";
 
 const App = () => {
+  const location = useLocation();
   return (
-    <BrowserRouter>
-      <Routes>
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
         {router.map((route, i) => {
           return (
             <Route
@@ -25,9 +27,8 @@ const App = () => {
             />
           );
         })}
-    
       </Routes>
-    </BrowserRouter>
+    </AnimatePresence>
   );
 };
 
