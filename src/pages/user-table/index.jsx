@@ -4,6 +4,8 @@ import "../../assets/styles/custom.scss";
 import { SearchOutlined } from "@ant-design/icons";
 import Highlighter from "react-highlight-words";
 import { DownOutlined } from "@ant-design/icons";
+import "../../components/modal/index.jsx";
+import ModalDialog from "../../components/modal/index.jsx";
 
 const EditableContext = React.createContext(null);
 const EditableRow = ({ index, ...props }) => {
@@ -326,6 +328,9 @@ const TableUser = () => {
   const [selectionType, setSelectionType] = useState("checkbox");
   return (
     <div>
+      <ModalDialog>
+        <p>erfan koni</p>
+      </ModalDialog>
       <Button
         onClick={handleAdd}
         type="primary"

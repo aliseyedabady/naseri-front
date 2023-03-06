@@ -15,7 +15,6 @@ import {
 import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
 
 const UserLogin = () => {
-
   const { Content } = Layout;
 
   const onFinish = (values) => {
@@ -33,17 +32,16 @@ const UserLogin = () => {
   } = theme.useToken();
 
   return (
-    <Row justify={"center"}>
+    <Row justify={"center"} style={{ backgroundColor: cardBackground }}>
       <Col xs={{ span: 24 }} sm={{ span: 24 }} md={{ span: 8 }}>
         <div
           style={{
-            backgroundColor: pageBackground,
             height: "100vh",
             overflow: "hidden",
           }}
           className="main"
         >
-          <div className="sub-main" style={{ backgroundColor: cardBackground }}>
+          <div className="sub-main" style={{ backgroundColor: pageBackground }}>
             <div className="main-form">
               <Avatar size={64} icon={<UserOutlined />} className="avatar" />
 
@@ -85,7 +83,7 @@ const UserLogin = () => {
                   >
                     <Input.Password
                       prefix={<LockOutlined className="site-form-item-icon" />}
-                      placeholder="رمز عبور" 
+                      placeholder="رمز عبور"
                       iconRender={(visible) =>
                         visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
                       }
