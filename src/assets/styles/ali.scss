@@ -1,3 +1,4 @@
+@import "./style.bundle.rtl.css";
 :where(.css-dev-only-do-not-override-kia1ud).ant-select:not(
     .ant-select-customize-input
   )
@@ -61,4 +62,9 @@
 }
 .border-dash {
   border: 1px dashed #f4f4f4;
+}
+:where(.css-dev-only-do-not-override-1pgs0ac).ant-tabs
+  .ant-tabs-tab
+  + .ant-tabs-tab {
+  margin: 0 32px 0 0;
 }
