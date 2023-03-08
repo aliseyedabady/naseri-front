@@ -1,14 +1,16 @@
-import FormLayOut from "../components/formLayout/index";
 import PanelLayout from "../layout";
 import UserLoginLayout from "../layout/login";
 import ShowModal from "../pages/show-modal";
+import AkoChart from "../pages/chart";
+import Dashboard from "../pages/dashboard";
+import Profile from "../pages/profile";
 import TableUser from "../pages/user-table";
 import UserLogin from "../pages/userLogin";
 
 export default [
   {
     path: "/",
-    component: FormLayOut,
+    component: Dashboard,
     layout: PanelLayout,
   },
 
@@ -26,6 +28,16 @@ export default [
   {
     path: "modal",
     component: ShowModal,
+    layout: PanelLayout,
+  },
+  {
+    path: "/chart",
+    component: AkoChart,
+    layout: PanelLayout,
+  },
+  {
+    path: "/profile",
+    component: Profile,
     layout: PanelLayout,
   },
 ];

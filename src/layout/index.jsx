@@ -81,6 +81,10 @@ const PanelLayout = ({ children }) => {
             },
             {
               key: "3",
+              label: <Link to={"/chart"}>نمودار ها</Link>,
+            },
+            {
+              key: "3",
               icon: <UploadOutlined />,
               label: "محصولات",
             },
@@ -135,6 +139,7 @@ const PanelLayout = ({ children }) => {
                       key: "2",
                       label: <Link to={"/users"}>کاربران</Link>,
                     },
+
                     {
                       key: "3",
                       label: "محصولات",
@@ -172,7 +177,7 @@ const PanelLayout = ({ children }) => {
             margin: "24px 16px",
             padding: 24,
             minHeight: 280,
-            background: colorBgContainer,
+            // background: colorBgContainer,
           }}
         >
           {" "}

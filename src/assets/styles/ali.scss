@@ -44,3 +44,21 @@
 .ant-layout {
   background-color: #f5f8fa !important;
 }
+// ant-card ant-card-bordered ant-card-hoverable
+.ant-card {
+  box-shadow: 0px 0px 20px 0px rgba(76, 87, 125, 0.02) !important;
+  border: none !important;
+  border-radius: 0.625rem;
+  .ant-card-body {
+    // padding: 20px !important;
+  }
+}
+.subtitle-color {
+  color: #b5b5c3 !important;
+}
+.fs-6 {
+  font-size: 1.075rem !important;
+}
+.border-dash {
+  border: 1px dashed #f4f4f4;
+}
