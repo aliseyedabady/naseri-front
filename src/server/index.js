@@ -1,7 +1,6 @@
 import { toast } from "react-toastify";
 import { serialize } from "object-to-formdata";
 import axios from "axios";
-// export const API_SERVER = "https://api.tojarco.com/api";
 export const API_SERVER = "http://192.168.1.103:8000/api";
 
 axios.defaults.headers.post["Accept"] = "application/json";
