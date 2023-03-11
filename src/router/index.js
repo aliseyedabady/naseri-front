@@ -15,7 +15,7 @@ export default [
   },
 
   {
-    path: "user-login",
+    path: "login",
     component: UserLogin,
     layout: UserLoginLayout,
   },
