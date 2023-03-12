@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import ModalDialog from "../../components/modal/index.jsx";
 import { Button, Modal } from "antd";
+import Icon, { CheckCircleOutlined } from "@ant-design/icons";
+import "../../assets/styles/custom.scss";
 
 const ShowModal = () => {
   const [openModal, setOpenModal] = useState({
@@ -30,7 +32,22 @@ const ShowModal = () => {
         handlerOk={handleOk}
         show={openModal.modal}
       >
-        basic modal
+        <div className="main-card">
+          <div className="card">
+            <div className="title-row">
+              <div>
+                <CheckCircleOutlined
+                  className="icon"
+                  style={{ fontSize: "30px" }}
+                />
+              </div>
+              <div className="title-text">با موفقیت انجام شد</div>
+            </div>
+            <div>
+              کابر جدید با موفقیت اضافه شد
+            </div>
+          </div>
+        </div>
       </ModalDialog>
       {/* -------------------------------------------------------- */}
       <Button

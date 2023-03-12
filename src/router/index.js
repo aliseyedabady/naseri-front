@@ -6,6 +6,7 @@ import Dashboard from "../pages/dashboard";
 import Profile from "../pages/profile";
 import TableUser from "../pages/user-table";
 import UserLogin from "../pages/userLogin";
+import ForgetPassword from "../pages/forget-pass";
 
 export default [
   {
@@ -17,6 +18,11 @@ export default [
   {
     path: "login",
     component: UserLogin,
+    layout: UserLoginLayout,
+  },
+  {
+    path: "forget-password",
+    component: ForgetPassword,
     layout: UserLoginLayout,
   },
 

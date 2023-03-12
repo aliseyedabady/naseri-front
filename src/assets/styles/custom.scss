@@ -74,6 +74,7 @@ html {
   }
 }
 //-----------------User Table-------------------
+
 .editable-cell {
   position: relative;
 }
@@ -91,4 +92,40 @@ html {
 
 .ant-pagination {
   direction: initial;
+}
+
+
+//-----------------modal-------------------
+.main-card{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  padding-top: 20px;
+  .card{
+    .title-row{
+      display: flex;
+      .title-text{
+        font-size: 20px;
+      }
+    }
+    .icon{
+      color: green;
+      padding-bottom: 20px;
+      padding-left: 10px;
+    }
+  }
+}
+//-----------------countdown-------------------
+.countdown{
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 5px;
+}
+.ant-statistic{
+  .ant-statistic-content{
+    font-size: 12px;
+    .ant-statistic-content-value{
+      color: #3f4254;
+    }
+  }
 }
