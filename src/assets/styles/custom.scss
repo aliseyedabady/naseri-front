@@ -36,6 +36,14 @@ html {
 .ant-form-item {
   margin-bottom: 10px !important;
 }
+.ant-spin-dot-item{
+  background-color: white !important;
+}
+.ant-spin{
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
 //---------------login Page----------------
 .main {
   display: flex;

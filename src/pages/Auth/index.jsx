@@ -3,19 +3,17 @@ import "../../assets/styles/custom.scss";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
 import { Typography, Button, Form, Input, Avatar } from "antd";
+import { useLogin } from "./Hook";
+import SpinFC from "antd/es/spin";
 
 const LoginForm = () => {
-  const onFinish = (values) => {
-    console.log("Received values of form: ", values);
-  };
+  const { login, loading } = useLogin();
   return (
     <div>
       <Avatar size={64} icon={<UserOutlined />} className="avatar" />
-
       <Typography.Title style={{ whiteSpace: "nowrap" }}>
         ورود کاربر
       </Typography.Title>
-
       <div>
         <Form
           name="normal_login"
@@ -23,17 +21,15 @@ const LoginForm = () => {
           initialValues={{
             remember: true,
           }}
-          onFinish={onFinish}
-        >
+          onFinish={(values) => login(values)}>
           <Form.Item
-            name="username"
+            name="mobile"
             rules={[
               {
                 required: true,
                 message: "لطفا نام کاربری خود را وارد نمایید!",
               },
-            ]}
-          >
+            ]}>
             <Input
               prefix={<UserOutlined className="site-form-item-icon" />}
               placeholder="نام کاربری"
@@ -46,8 +42,7 @@ const LoginForm = () => {
                 required: true,
                 message: "لطفا رمز عبور خود را وارد نمایید!",
               },
-            ]}
-          >
+            ]}>
             <Input.Password
               prefix={<LockOutlined className="site-form-item-icon" />}
               placeholder="رمز عبور"
@@ -56,7 +51,6 @@ const LoginForm = () => {
               }
             />
           </Form.Item>
-
           <div className="forget-section">
             <Form.Item>
               <a className="login-form-forgot" href="">
@@ -64,14 +58,13 @@ const LoginForm = () => {
               </a>
             </Form.Item>
           </div>
-
           <Form.Item>
             <Button
               type="primary"
               htmlType="submit"
               className="login-form-button"
-            >
-              ورود
+              disabled={loading}>
+              {loading ? <SpinFC size="small" /> : "ورود"}
             </Button>
           </Form.Item>
         </Form>

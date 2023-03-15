@@ -1,6 +1,7 @@
 import React from "react";
 import "./assets/fonts/vazir/font.css";
 import "./assets/styles/index.scss";
+import "react-toastify/dist/ReactToastify.css";
 // import Layout from "./layout";
 import "antd/dist/reset.css";
 // import AkoForm from "./components/form";
@@ -8,6 +9,8 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import { BrowserRouter } from "react-router-dom";
 import router from "./router/index.js";
 import { AnimatePresence } from "framer-motion";
+import { ToastContainer } from "react-toastify";
+
 
 const App = () => {
   const location = useLocation();
@@ -28,6 +31,8 @@ const App = () => {
           );
         })}
       </Routes>
+      <ToastContainer rtl />
+
     </AnimatePresence>
   );
 };

@@ -4,9 +4,8 @@ import { toast } from "react-toastify";
 import { serialize } from "object-to-formdata";
 import axios from "axios";
 import { API_SERVER } from "../Server";
-axios.defaults.headers.post["Accept"] = "application/json";
-axios.defaults.headers.post["Content-Type"] = "multipart/form-data";
-
+axios.defaults.headers["Accept"] = "application/json";
+axios.defaults.headers["Content-Type"] = "multipart/form-data";
 const context = createContext();
 
 const ContextProvider = ({ children }) => {

@@ -5,8 +5,8 @@ import AkoChart from "../pages/chart";
 import Dashboard from "../pages/dashboard";
 import Profile from "../pages/profile";
 import TableUser from "../pages/user-table";
-import UserLogin from "../pages/userLogin";
-import ForgetPassword from "../pages/forget-pass";
+import UserLogin from "../pages/Auth";
+import ForgetPassword from "../pages/Auth/ForgetPassword";
 
 export default [
   {

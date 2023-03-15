@@ -1,21 +1,30 @@
 import React from "react";
 import "../../assets/styles/custom.scss";
-import { LockOutlined, UserOutlined, MailOutlined, KeyOutlined} from "@ant-design/icons";
+import {
+  LockOutlined,
+  UserOutlined,
+  MailOutlined,
+  KeyOutlined,
+} from "@ant-design/icons";
 import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
-import { Button, Form, Input, Checkbox, Statistic, Avatar, Typography} from "antd";
+import {
+  Button,
+  Form,
+  Input,
+  Checkbox,
+  Statistic,
+  Avatar,
+  Typography,
+} from "antd";
 import { useEffect, useState } from "react";
+import { useForgetPass } from "./Hook";
 
 const { Countdown } = Statistic;
 const deadline = Date.now() + 1000 * 60 * 60 * 24 * 2 + 1000 * 30;
-
 const ForgetPassword = () => {
+  // const { form, showResend, changeShowResend } = useForgetPass();
   const onFinish = (values) => {
     console.log(":مقادیر گرفته شده از فرم", values);
-  };
-
-  const onEnd = () => {
-    console.log("finished!");
-    
   };
 
   const onChange = (val) => {
@@ -23,6 +32,21 @@ const ForgetPassword = () => {
       console.log("changed!");
     }
   };
+  // const renderBtn = () => {
+  //   if (showResend) {
+  //     return (
+  //       <Button type="primary" htmlType="submit" className="login-form-button">
+  //         ارسال مجدد کد
+  //       </Button>
+  //     );
+  //   } else {
+  //     return (
+  //       <Button type="primary" htmlType="submit" className="login-form-button">
+  //         ثبت
+  //       </Button>
+  //     );
+  //   }
+  // };
   return (
     <div>
       <Avatar size={64} icon={<KeyOutlined />} className="avatar" />
@@ -37,8 +61,7 @@ const ForgetPassword = () => {
           initialValues={{
             remember: true,
           }}
-          onFinish={onFinish}
-        >
+          onFinish={onFinish}>
           <Form.Item
             name="username"
             rules={[
@@ -46,18 +69,18 @@ const ForgetPassword = () => {
                 required: true,
                 message: "لطفا کد تایید را وارد نمایید!",
               },
-            ]}
-          >
+            ]}>
             <Input
               prefix={<MailOutlined className="site-form-item-icon" />}
               placeholder="کد تایید موقت"
             />
             <div className="countdown">
-              <Countdown
+              {/* <Countdown
                 format="mm:ss"
-                value={Date.now() + 120 * 1000}
+                value={Date.now() + 3 * 1000}
                 onChange={onChange}
-              />
+                onFinish={changeShowResend}
+              /> */}
             </div>
           </Form.Item>
 
@@ -69,8 +92,7 @@ const ForgetPassword = () => {
                 message: "لطفا رمز عبور خود را وارد نمایید",
               },
             ]}
-            hasFeedback
-          >
+            hasFeedback>
             <Input.Password
               prefix={<LockOutlined className="site-form-item-icon" />}
               placeholder="رمز عبور"
@@ -96,30 +118,14 @@ const ForgetPassword = () => {
                   );
                 },
               }),
-            ]}
-          >
+            ]}>
             <Input.Password
               prefix={<LockOutlined className="site-form-item-icon" />}
               placeholder="تایید رمز عبور"
             />
           </Form.Item>
 
-          <Form.Item>
-            <Button
-              type="primary"
-              htmlType="submit"
-              className="login-form-button"
-            >
-              ثبت
-            </Button>
-            <Button
-              type="primary"
-              htmlType="submit"
-              className="login-form-button"
-            >
-              ارسال مجدد کد
-            </Button>
-          </Form.Item>
+          {/* <Form.Item>{renderBtn()}</Form.Item> */}
         </Form>
       </div>
     </div>
